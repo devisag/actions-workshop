@@ -5,7 +5,7 @@ const jsonString = fs.readFileSync('./tmp/inflation.json');
 const data = JSON.parse(jsonString);
 
 // Extract the required data
-const values = data.values.PCPIPCH;;
+const values = data.values.PCPIPCH;
 const keys = Object.keys(values);
 const csvData = keys.map(key => [key, values[key]['2023']]);
 
@@ -14,10 +14,12 @@ const countryJson = fs.readFileSync('./tmp/countries.json');
 const country_data = JSON.parse(countryJson);
 
 // Loop through the inflation data to join the country name to the country code
+// eslint-disable-next-line no-undef
 for (row in csvData) {
 
     // on each loop, grab the three-letter country code from the data, from the first [0] position
-    const country_code = csvData[row][0]
+    // eslint-disable-next-line no-undef
+    const country_code = csvData[row][0];
 
     // establish a country_name variable
     var country_name
@@ -25,7 +27,7 @@ for (row in csvData) {
     if (!country_data.countries[country_code]) {
         // if there's no matching country code (some IMF codes are regions), use a blank
 
-        country_name = ""
+        country_name = "";
 
     } else {
         // otherwise, look up the country name (label) in the country_data based on the country_code

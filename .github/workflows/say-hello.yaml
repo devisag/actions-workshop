@@ -1,5 +1,5 @@
 on:
-  workflow_dispatch:
+  workflow_dispatch: #button for triggering action
 
 jobs:
   build:
@@ -11,5 +11,5 @@ jobs:
             fetch-depth: 1
 
       - name: Process data 
-        run: make greeting
+        run: make greeting #its in the make file
         
